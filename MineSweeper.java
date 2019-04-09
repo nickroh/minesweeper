@@ -10,7 +10,7 @@ public class MineSweeper {
 		char map[][]=new char[105][105];
 		while(true)
 		{
-			System.out.println("°ÔÀÓÀ» ½ÃÀÛÇÏ½Ã°Ú½À´Ï±î?(Y/N)");
+			System.out.println("ê²Œì„ì„ ì‹œì‘í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N)");
 			String start=new String();
 			start=scanner.nextLine();
 			if(start.equals("N"))
@@ -29,7 +29,7 @@ public class MineSweeper {
 				}
 			}
 			int n;
-			System.out.println("Áö·ÚÀÇ °³¼ö´Â?");
+			System.out.println("ì§€ë¢°ì˜ ê°œìˆ˜ëŠ”?");
 			n=scanner.nextInt();
 
 			renew(map,mine);
@@ -38,6 +38,7 @@ public class MineSweeper {
 			boolean over=true;
 			while(true)
 			{
+				System.out.println("ì¢Œí‘œë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 				int x,y;
 				x=scanner.nextInt();
 				y=scanner.nextInt();
@@ -45,7 +46,7 @@ public class MineSweeper {
 				check=checker(x,y,mine);
 				if(check==100)
 				{
-					map[x][y]='¢Ã';
+					map[x][y]='â–£';
 					over=false;
 					break;
 				}
@@ -54,11 +55,13 @@ public class MineSweeper {
 					char cc=(char)(check+'0');
 					map[x][y]=cc;
 				}
+				clearscreen();
 				show(map);
 			}
 			if(over==false)
 			{
 				System.out.println("GameOver");
+				clearscreen();
 				showend(mine);
 			}
 			else
@@ -68,20 +71,25 @@ public class MineSweeper {
 			
 		}
 	}
+	public static void clearscreen()
+	{
+		for (int i = 0; i < 80; i++)
+		      System.out.println("");
+	}
 	public static void renew(char map[][],char mine[][])
 	{
 		for(int i=0;i<15;i++)
 		{
 			for(int j=0;j<15;j++)
 			{
-				map[i][j]='¡á';
+				map[i][j]='â– ';
 			}
 		}
 		for(int i=0;i<15;i++)
 		{
 			for(int j=0;j<15;j++)
 			{
-				mine[i][j]='¢È';
+				mine[i][j]='â–¥';
 			}
 		}
 	}
@@ -105,7 +113,7 @@ public class MineSweeper {
 			y=(int)(Math.random()*10.0+1);
 			int flag=1;
 			flag=check(x,y,mine);
-			if(flag==1) mine[y][x]='¢Ã';
+			if(flag==1) mine[y][x]='â–£';
 			else 
 			{
 				i--;
@@ -115,7 +123,7 @@ public class MineSweeper {
 	public static int check(int x, int y, char mine[][])
 	{
 		int flag;
-		if(mine[x][y]=='¢Ã')
+		if(mine[x][y]=='â–£')
 		{
 			flag=0;
 		}
@@ -138,42 +146,42 @@ public class MineSweeper {
 	}
 	public static int checker(int a, int b,char mine[][])
 	{
-		if(mine[a][b]=='¢Ã')
+		if(mine[a][b]=='â–£')
 		{
 			return 100;
 		}
 		else
 		{
 			int cnt=0;
-			if(mine[a+1][b]=='¢Ã')
+			if(mine[a+1][b]=='â–£')
 			{
 				cnt++;
 			}
-			if(mine[a+1][b+1]=='¢Ã')
+			if(mine[a+1][b+1]=='â–£')
 			{
 				cnt++;
 			}
-			if(mine[a+1][b-1]=='¢Ã')
+			if(mine[a+1][b-1]=='â–£')
 			{
 				cnt++;	
 			}
-			if(mine[a][b+1]=='¢Ã')
+			if(mine[a][b+1]=='â–£')
 			{
 				cnt++;
 			}
-			if(mine[a][b-1]=='¢Ã')
+			if(mine[a][b-1]=='â–£')
 			{
 				cnt++;
 			}
-			if(mine[a-1][b]=='¢Ã')
+			if(mine[a-1][b]=='â–£')
 			{
 				cnt++;
 			}
-			if(mine[a-1][b+1]=='¢Ã')
+			if(mine[a-1][b+1]=='â–£')
 			{
 				cnt++;
 			}
-			if(mine[a-1][b-1]=='¢Ã')
+			if(mine[a-1][b-1]=='â–£')
 			{
 				cnt++;
 			}
