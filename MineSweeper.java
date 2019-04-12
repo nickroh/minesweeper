@@ -10,7 +10,7 @@ public class MineSweeper {
 		char map[][]=new char[105][105];
 		while(true)
 		{
-			System.out.println("Play Game? (Y/N)");
+			System.out.println("게임을 시작하시겠습니까?(Y/N)");
 			String start=new String();
 			start=scanner.nextLine();
 			if(start.equals("N"))
@@ -29,7 +29,7 @@ public class MineSweeper {
 				}
 			}
 			int n;
-			System.out.println("How many mines?");
+			System.out.println("지뢰의 개수는?");
 			n=scanner.nextInt();
 
 			renew(map,mine);
@@ -38,7 +38,7 @@ public class MineSweeper {
 			boolean over=true;
 			while(true)
 			{
-				System.out.println("Input coord");
+				System.out.println("좌표를 입력하세요");
 				int x,y;
 				x=scanner.nextInt();
 				y=scanner.nextInt();
@@ -60,8 +60,9 @@ public class MineSweeper {
 			}
 			if(over==false)
 			{
-				System.out.println("GameOver");
+				
 				clearscreen();
+				System.out.println("GameOver");
 				showend(mine);
 			}
 			else
