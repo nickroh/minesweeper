@@ -124,7 +124,7 @@ public class MineSweeper {
 	public static int check(int x, int y, char mine[][])
 	{
 		int flag;
-		if(mine[x][y]=='▣')
+		if(mine[y][x]=='▣')
 		{
 			flag=0;
 		}
@@ -192,3 +192,4 @@ public class MineSweeper {
 	}
 
 }
+
