@@ -20,12 +20,12 @@ public class MineSweeper {
 				start2=scanner.nextInt();
 				if(start2==1)
 				{
-					System.out.println("f*** you");
+					System.out.println("-------");
 					break;
 				}
 				else
 				{
-					System.out.println("yeah!!");
+					System.out.println("--");
 				}
 			}
 			int n;
